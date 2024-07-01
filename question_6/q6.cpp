@@ -19,6 +19,8 @@
 #include <list>
 
 #include "Kosaraju.hpp"
+#include "Reactor.hpp"
+
 
 #define PORT "9034"  // port we're listening on
 
@@ -91,6 +93,10 @@ void *get_in_addr(struct sockaddr *sa) {
 }
 
 int main() {
+    //create reactor
+
+
+
     fd_set master;    // master file descriptor list
     fd_set read_fds;  // temp file descriptor list for select()
     int fdmax;        // maximum file descriptor number
@@ -159,7 +165,7 @@ int main() {
 
     // keep track of the biggest file descriptor
     fdmax = listener;  // so far, it's this one
-
+Reactor reactor = startReactor();
     // main loop
     for (;;) {
         read_fds = master;  // copy it
