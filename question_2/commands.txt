@@ -1,0 +1,13 @@
+gprof adj_Deque gmon.out > analysis_adj_Deque.txt
+gprof adj_List gmon.out > analysis_adj_List.txt
+
+
+gprof vecList_Deque gmon.out > analysis_vecList_Deque.txt
+
+gprof vecList_List gmon.out > analysis_vecList_List.txt
+
+
+
+
+
+
