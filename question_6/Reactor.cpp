@@ -7,12 +7,7 @@ Reactor::~Reactor() {
     // Stop the reactor
     stopReactor();
 }
-// Starts new reactor and returns pointer to it
-void *Reactor::startReactor() {
-    // Dynamically allocate a new reactor instance
-    Reactor *newReactor = new Reactor();
-    return newReactor;
-}
+
 int Reactor::addFdToReactor(int fd, reactorFunc func) {
     // Add the file descriptor and function to the reactor
     this->fdFunctions[fd] = func;

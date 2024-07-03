@@ -21,4 +21,5 @@ class Proactor {
     void startProactor(int sockfd, proactorFunc threadFunc);
     // stops proactor by threadid
     void stopProactor();
+    mutex& get_mtx();
 };

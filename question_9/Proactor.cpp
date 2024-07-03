@@ -1,13 +1,13 @@
 #include "Proactor.hpp"
 
-void Proactor::startProactor(int sockfd, proactorFunc threadFunc) {
-    server_thread = thread([&]() {
+void Proactor::startProactor(int server_fd, proactorFunc threadFunc) {
+    server_thread = thread([server_fd, threadFunc, this]() {
         // accept clients and create a thread for each client
         for (;;) {
             struct sockaddr_in client_addr;
             socklen_t client_addr_len = sizeof(client_addr);
 
-            int client_fd = accept(sockfd, (struct sockaddr *)&client_addr, &client_addr_len);
+            int client_fd = accept(server_fd, (struct sockaddr *)&client_addr, &client_addr_len);
             if (client_fd < 0) {
                 perror("accept");
                 break;
