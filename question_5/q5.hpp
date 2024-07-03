@@ -1,4 +1,7 @@
+#include <atomic>
 #include <iostream>
+#include <unordered_map>
+typedef void* (*reactorFunc)(int fd);
 class Reactor {
    private:
     std::unordered_map<int, reactorFunc> fdFunctions;
@@ -7,13 +10,14 @@ class Reactor {
    public:
     Reactor();
     ~Reactor();
-    typedef void *(*reactorFunc)(int fd);
     // starts new reactor and returns pointer to it
-    void *startReactor();
+    static void* startReactor();
     // adds fd to Reactor (for reading) ; returns 0 on success.
-    Int addFdToReactor(void *reactor, int fd, reactorFunc func);
+    int addFdToReactor(int fd, reactorFunc func);
     // removes fd from reactor
-    Int removeFdFromReactor(void *reactor, int fd);
+    int removeFdFromReactor(int fd);
     // stops reactor
-    int stopReactor(void *reactor);
+    int stopReactor();
+
+    void run();
 };

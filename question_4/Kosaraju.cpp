@@ -88,7 +88,6 @@ vector<list<int>> Newgraph(istringstream  &iss, int n, int m) {  // function to 
         vecList[u - 1].push_back(v - 1);
     }
    //cout << "Graph created" << endl;
-           cout<<n<<"nnnnnnnnnnnnnnnnnnn0111"<<endl;
 
     return vecList;
 }
@@ -110,7 +109,6 @@ string kosaraju(int n, vector<list<int>>& vecList) {
         scc_str += "\n";
     }
    // cout << "Finished processing all components." << endl; // Debug: Finished processing
-           cout<<n<<"nnnnnnnnnnnnnnnnnnn111111111"<<endl;
 
     return scc_str;
 }
