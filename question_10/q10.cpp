@@ -45,7 +45,7 @@ void print_status(mutex &mtx) {
                  << "\033[0m";
         }
 
-        // wint until the next notification
+        // wait until the next notification
         gt_than_50.wait(lk);
     }
 }
@@ -184,7 +184,7 @@ int main() {
         exit(2);
     }
 
-    freeaddrinfo(ai);  // all done with this
+    freeaddrinfo(ai); 
 
     // listen
     if (listen(listener, 10) == -1) {

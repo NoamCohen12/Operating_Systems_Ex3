@@ -10,8 +10,6 @@ class Reactor {
    public:
     Reactor();
     ~Reactor();
-    // starts new reactor and returns pointer to it
-    static void* startReactor();
     // adds fd to Reactor (for reading) ; returns 0 on success.
     int addFdToReactor(int fd, reactorFunc func);
     // removes fd from reactor
